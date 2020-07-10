@@ -16,8 +16,7 @@
   
   .headingLg {
     font-size: 1.5rem;
-    line-height: 1.4;
-    margin: 1rem 0;
+    margin: 0.5rem 0;
   }
   
   .headingMd {
@@ -50,4 +49,8 @@
   .lightText {
     color: #999;
   }
-  
+
+  .quote {
+    font-style: italic;
+    text-align: center;
+  }  

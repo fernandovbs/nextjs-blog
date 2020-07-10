@@ -3,7 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Fernando'
+const name = 'Fernandovbs'
 export const siteTitle = 'Next.js Sample Website'
 
 export default function Layout({ children, home }) {
@@ -35,23 +35,30 @@ export default function Layout({ children, home }) {
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
-          <>
-            <Link href="/">
-              <a>
-                <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
+          <div className={styles.headerGroup}>
+            <img
+              src="/codificacao.svg"
+              className={`${styles.headerImage}`}
+              alt="Code"
+            />
+            <h2 className={`${styles.headingInner} ${utilStyles.headingLg}` }>
               <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
+                <a className={utilStyles.colorInherit, styles.fancy}>{name}</a>
               </Link>
             </h2>
-          </>
+          </div>
         )}
+        <nav className={styles.nav}>
+          <Link href="/posts">
+            <a className={`${styles.fancy}`}>POSTS</a>
+          </Link>
+          <Link href="/drops">
+            <a className={`${styles.fancy}`}>DROPS</a>
+          </Link>      
+          <Link href="/about">
+            <a className={`${styles.fancy}`}>ABOUT</a>
+          </Link>              
+        </nav>
       </header>
       <main>{children}</main>
       {!home && (
