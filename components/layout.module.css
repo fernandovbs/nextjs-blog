@@ -19,8 +19,6 @@
   .headerGroup:hover > .headerImage{
     animation: shake 0.5s; 
     animation-iteration-count: 1s; 
-    width: 2.5rem;
-    height: 2.5rem;    
   }
 
   @keyframes shake {
@@ -83,4 +81,3 @@
   .backToHome {
     margin: 3rem 0 0;
   }
-  

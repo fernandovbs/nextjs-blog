@@ -3,6 +3,7 @@ import { getAllPostIds, getPostData } from '../../lib/posts'
 import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
+import Highlight from 'react-highlight'
 
 export async function getStaticPaths() {
     const paths = getAllPostIds()
@@ -33,7 +34,10 @@ export default function Post({ postData }) {
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <Highlight innerHTML={true}>
+          {postData.contentHtml}
+          
+        </Highlight>
       </article>
     </Layout>
   )
