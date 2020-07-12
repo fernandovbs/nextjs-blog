@@ -36,7 +36,6 @@ export default function Post({ postData }) {
         </div>
         <Highlight innerHTML={true}>
           {postData.contentHtml}
-          
         </Highlight>
       </article>
     </Layout>
