@@ -21,6 +21,16 @@ a:hover {
   text-decoration: underline;
 }
 
+article a {
+  color: #2dcf05;
+  text-decoration: none;
+}
+
+article a:hover {
+  color: #2aa70b;
+  text-decoration: underline;
+}
+
 img {
   max-width: 100%;
   display: block;

@@ -1,17 +1,17 @@
 ---
 title: 'Managing multiple wordpress sites using Bitbucket pipelines'
-date: '2020-01-02'
+date: '2020-07-10'
 ---
 
 If you are working in an agency or as a freelancer. Chances are that you spend a lot of time keeping your WordPress installations up to date.
 
-In this article, I'll show you an alternative that will allow you to distribute changes to all sites from a specific host simultaneously using [Bitbucket pipelines](https://bitbucket.org/product/features/pipelines) and a bare repository.
+In this article, I'll show you an alternative that will allow you to distribute changes to all sites from a specific host simultaneously using <a href="https://bitbucket.org/product/features/pipelines" target="_blank" rel="nofollow">Bitbucket pipelines</a> and a bare repository.
 
 *Note: In this article I'll be using ubuntu 18.04.*
 
 ### Git bare
 In order to automate the process of distribute our updates to multiple wp instalations, keeping track of all configured sites, we'll be using a git bare clone of our repository.
-But what is a bare repository? [Quoting the docs](https://www.git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare) we have:
+But what is a bare repository? <a href="https://www.git-scm.com/docs/git-clone#Documentation/git-clone.txt---bare" target="_blank" rel="nofollow">Quoting the docs</a> we have:
 
 > That is, instead of creating <directory> and placing the administrative files in <directory>/.git, make the <directory> itself the $GIT_DIR. This obviously implies the --no-checkout because there is nowhere to check out the working tree. Also the branch heads at the remote are copied directly to corresponding local branch heads, without mapping them to refs/remotes/origin/. When this option is used, neither remote-tracking branches nor the related configuration variables are created.
 
@@ -31,7 +31,7 @@ sudo adduser deploy
 sudo chown -R deploy:www-data /path/to/hosts
 ```
 
-* clone the repository at the users home path:
+* clone the repository at the user home path:
 
 ```sh
 sudo su deploy
@@ -87,17 +87,17 @@ pipelines:
                 COMMAND: 'deploy-out.sh' 
 ```
 
-Here we're using a [custom docker image](https://hub.docker.com/r/acm1/gettext) with gettext installed. Bitbucket supports public and private Docker images including those hosted on Docker Hub, AWS, GCP, Azure and self-hosted registries accessible on the internet.
+Here we're using a <a href="https://hub.docker.com/r/acm1/gettext" target="_blank" rel="nofollow">custom docker image</a> with gettext installed. Bitbucket supports public and private Docker images including those hosted on Docker Hub, AWS, GCP, Azure and self-hosted registries accessible on the internet.
 
-We run [envsubst](https://command-not-found.com/envsubst) from gettext to replace our env vars in our deploy script.
+We run <a href="https://command-not-found.com/envsubst" target="_blank" rel="nofollow">envsubst</a> from gettext to replace our env vars in our deploy script.
 
-Pipelines comes with [nomerous env vars](https://support.atlassian.com/bitbucket-cloud/docs/variables-in-pipelines/#Variablesinpipelines-customvars) that you can use to customize your deploy process. You can create new ones as well. 
+Pipelines comes with <a href="https://support.atlassian.com/bitbucket-cloud/docs/variables-in-pipelines/#Variablesinpipelines-customvars" target="_blank" rel="nofollow">numerous env vars</a> that you can use to customize your deploy process. You can create new ones as well. 
 
 Here we defined a custom var called ENVIRONMENT all the other variables were automatically set by pipelines.
 
 You can define custom env vars in the Deployments section or Repository variables.
 
-With this configuration, the [ssh-run pipe](https://bitbucket.org/atlassian/ssh-run/src/0.2.6/) will search for a deploy.sh file inside our repository.
+With this configuration, the <a href="https://bitbucket.org/atlassian/ssh-run/src/0.2.6/" target="_blank" rel="nofollow">ssh-run pipe</a> will search for a deploy.sh file inside our repository.
 
 Let's see how it looks:
 
