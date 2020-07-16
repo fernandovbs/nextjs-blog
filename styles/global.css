@@ -28,7 +28,7 @@ article a {
 
 article a:hover {
   color: #2aa70b;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 img {
